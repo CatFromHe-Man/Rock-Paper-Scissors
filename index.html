@@ -11,11 +11,15 @@
 const choiceOne = `Rock`;
 const choiceTwo = `Paper`;
 const choiceThree = `Scissors`;
+let humanScore = 0;
+let computerScore = 0;
+
+
 
 
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
-    console.log(randomNumber);
+    // console.log(randomNumber);
     switch(randomNumber) {
         case 0:
         return choiceOne;
@@ -30,8 +34,68 @@ function getComputerChoice() {
 
     }
 }
-console.log(getComputerChoice());
 
+let humanChoice = prompt(`Please choose either Rock, Paper or Scissors`);
+
+function getHumanChoice() {
+    let choice = humanChoice.toLowerCase(); // Convert input to lowercase
+
+    if (choice === `rock`) {
+        return choiceOne;
+    } else if (choice === `paper`) {
+        return choiceTwo;
+    } else if (choice === `scissors`) {
+        return choiceThree;
+    } else if (choice === `` || choice === null) {
+        alert(`Cancelled`);
+    } else {
+        alert(`Wrong choice`);
+    }
+}
+
+
+
+function playRound(humanChoice, computerChoice) {
+    if (humanSelection === computerSelection) {
+      console.log(`It's a tie! you both picked ${humanSelection}`);
+  } else if (humanSelection === `Rock` && computerSelection === `Scissors`) {
+        console.log(`Human wins, rock beats scissors`);
+    } else if (humanSelection === `Paper` && computerSelection === `Rock`) {
+        console.log(`Human wins, paper beats rock`);
+    } else if (humanSelection === `Scissors` && computerSelection === `Paper`) {
+        console.log(`Human wins, Scissors beats paper`);
+    }   else
+        console.log(`You lose ${computerSelection} beats ${humanSelection}`);
+}
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+
+console.log(computerSelection);
+console.log(humanSelection);
+console.log(playRound(humanSelection, computerSelection));
 </script>
 </body>
 </html>
+
+
+
+
+// <!-- Alternate version to do computer choice  -->
+
+
+// <!-- const choiceOne = `Rock`;
+// const choiceTwo = `Paper`;
+// const choiceThree = `Scissors`;        
+
+// function getComputerChoice() {
+//     const randomNumber = Math.floor(Math.random() * 3);
+//     console.log(randomNumber);
+//     if (randomNumber === 0) {
+//         return choiceOne;
+//     } else if (randomNumber === 1) {
+//         return choiceTwo;
+//     } else return choiceThree;
+//         } -->
